@@ -19,6 +19,6 @@ node server.js
 
 ## Technologies used
 
-* (express)[https://expressjs.com/]- Nodejs web framework
+* [express](https://expressjs.com/)- Nodejs web framework
 * dotenv - for environment variables
 * cors - for easy CORs configuration
