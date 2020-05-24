@@ -4,6 +4,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
+
+//App variables
 const PORT = process.env.PORT || 5000;
 
 // Bodyparser middleware
@@ -14,11 +16,13 @@ app.use(
 );
 app.use(bodyParser.json());
 
+//default response headers
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", 'http://localhost:3000'); // local
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
+
 //configure cors
 var allowedOrigins = [
   'http://localhost:3000',
