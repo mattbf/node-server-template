@@ -14,3 +14,7 @@ node server.js
 `
 
 ## Technologies used
+
+* express- Nodejs web framework
+* dotenv - for environment variables
+* cors - for easy CORs configuration
