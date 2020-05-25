@@ -11,6 +11,7 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/node-s
 
 //App variables
 const PORT = process.env.PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000'
 
 //Routes
 const users = require("./Routes/User.routes.js");
@@ -25,14 +26,14 @@ app.use(bodyParser.json());
 
 //default response headers
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", 'http://localhost:3000'); // local
+  res.header("Access-Control-Allow-Origin", CLIENT_URL); // local
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
 //configure cors
 var allowedOrigins = [
-  'http://localhost:3000',
+  CLIENT_URL,
 ];
 app.use(cors({
   origin: function(origin, callback){
