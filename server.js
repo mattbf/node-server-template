@@ -12,6 +12,9 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/node-s
 //App variables
 const PORT = process.env.PORT || 5000;
 
+//Routes
+const users = require("./Routes/User.routes.js");
+
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -49,5 +52,8 @@ mongoose
   .connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB successfully connected to URI: " + MONGODB_URI))
   .catch(err => console.log(err));
+
+//Configure Routes
+app.use("/users", users);
 
 app.listen(PORT, () => console.log(`Server up and running on port ${PORT}!`));
